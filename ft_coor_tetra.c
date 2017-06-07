@@ -6,10 +6,10 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:26:45 by llorgere          #+#    #+#             */
-/*   Updated: 2017/05/30 17:16:44 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/02 19:55:31 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "libfil.h"
 
 char	**ft_row_tetra(char *tetra)
@@ -25,14 +25,28 @@ char	**ft_row_tetra(char *tetra)
 	row = 0;
 	i = 0;
 	j = 4;
+//	printf("test 1 ft_row\n");
 	while (i < 19)
 	{
 		col = 0;
+//		printf("test 2 ft_row de %d\n", i);
 		if (!(tab[row] = (char *)malloc(sizeof(char) * 5)))
 			return (NULL);
-		while (++i < j)
-			tab[row][col++] = tetra[i];
-		tab[row++][col] = '\0';
+//		printf("test 3 ft_row de %d\n", i);
+		while (i < j)
+		{
+/*			printf("*row = %d et *col = %d\n", row, col);
+			printf("test 3.5 ft_row de %d\n", i);
+			printf("tetra[i] est %c\n", tetra[i]);
+*/			tab[row][col] = tetra[i];
+//			printf("row = %d et col = %d\n", row, col);
+			col++;
+			i++;
+//			printf("test 4 ft_row de %d\n", i);
+		}
+		tab[row][col] = '\0';
+		row++;
+//		printf("test 5 ft_row de %d\n", i);
 		i = i + 1;
 		j = i + 4;
 	}

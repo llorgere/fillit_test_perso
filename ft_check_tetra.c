@@ -6,7 +6,7 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 16:13:51 by llorgere          #+#    #+#             */
-/*   Updated: 2017/05/30 16:01:22 by acolas           ###   ########.fr       */
+/*   Updated: 2017/06/02 17:26:45 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_tetra_check(char *tetra, int i, int l)
 	if (tetra[i + 5] == '#')
 		la++;
 	if (la == 0)
-		return (0);
+		return (9);
 	l = l + la;
 	return (l);
 }

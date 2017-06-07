@@ -12,26 +12,38 @@
 #include "libfil.h"
 #include "libft/libft.h"
 
-int		ft_backtracking(char **square, int square_size, int position, int nb_tetra, int ***tetra)
+void	ft_backtracking(char **file, int nb_tetra)
 {
+	int		size_square;
+	int		**coor;
+	char 	**square;
 	int		row;
 	int		col;
-	int		i;
+	int		tetra;
 
-	if ((position == square_size * square_size))
-		return (ft_backtracking(square, square_size,  postion, nb_tetra, tetra));
-	if ((position == square_size * square_size) && tetra == 0)
-		return (1);
-	row = position / square_size;
-	col = position % square_size;
-	if (square[row][col] != '.')
-		return (ft_backtracking(square, square_size, position + 1, nb_tetra));
-	while (i < nb_tetra)
+	size_square = 2;
+	while (size_square < 1000)
 	{
-		if (ft_check_posi(square, tetra[i], row, col, nb_tetra))
+		square = ft_new_square(size_square);
+		row = 0
+		while (col < size_square)
 		{
-			ft_put_tetra();
-			if (ft_backtracking(grille,, square))
+			col = 0;
+			while (row < size_square)
+			{
+				tetra = 0;
+				while (tetra < nb_tetra)
+				{
+					coor = ft_coor_tetra(ft_row_tetra(file[tetra]));
+					if (ft_check_posi(square, coor, row, col, size_square) == 1)
+					{
+					}
+					tetra++;
+				}
+				row++;
+			}
+			col++;
 		}
+		size_square++;
 	}
 }

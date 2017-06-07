@@ -6,21 +6,27 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:04:51 by llorgere          #+#    #+#             */
-/*   Updated: 2017/05/30 17:45:42 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/02 19:58:02 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libfil.h"
 
-int		ft_check_posi(char **square, int **tetra, int row, int col, int n)
+int		ft_check_posi(char **square, int **tetra, int pos, int sq_size)
 {
 	int		i;
+	int		row;
+	int		col;
 
 	i = 0;
+	row = pos / sq_size;
+	col = pos % sq_size;
 	while (i < 4)
 	{
-		if ((col + tetra[i][0]) < 0 || (row + tetra[i][1]) < 0
-				|| (col + tetra[i][0]) >= n || (row + tetra[i][1]) >= n)
+		if ((row + tetra[i][1]) < 0 || (col + tetra[i][0]) < 0
+				|| (col + tetra[i][0]) >= sq_size ||
+				(row + tetra[i][1]) >= sq_size)
 			return (0);
-		else if (square[col + tetra[i][0]][row + tetra[i][1]] != '.')
+		else if (square[row + tetra[i][1]][col + tetra[i][0]] != '.')
 			return (0);
 		i++;
 	}

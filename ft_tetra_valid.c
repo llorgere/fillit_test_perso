@@ -6,10 +6,10 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 15:08:15 by llorgere          #+#    #+#             */
-/*   Updated: 2017/05/30 16:55:55 by acolas           ###   ########.fr       */
+/*   Updated: 2017/06/02 19:04:56 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "libfil.h"
 #define BUFF_SIZE 21
 
@@ -33,7 +33,8 @@ char	**ft_tetra_valid(char *file, int n)
 			return (NULL);
 		else if (ft_check_tetra(buff) == 1)
 		{
-			tab[i++] = ft_strdup(buff);
+			tab[i] = ft_strdup(buff);
+//			printf("tab[%d] est %s", i, tab[i]);
 			i++;
 		}
 		else
